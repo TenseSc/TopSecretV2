@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çok gizli / Top Sikrıt</title>
+    <style>
+        /* Animasyonlu geçişler için CSS */
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        @keyframes fadeout {
+            from { opacity: 1; }
+            to   { opacity: 0; }
+        }
+        img {
+            /* Resmin animasyonlu geçişlerini tanımla */
+            animation: fadein 1s;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .hidden {
+            /* Gizlenen resmin animasyonlu geçişlerini tanımla */
+            animation: fadeout 1s;
+        }
+        body{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <button id="resimGoster">Butona BAAAS </button>
+    <img id="resim" style="display:none;display: flex; align-items: ce ;width: 1200px; height: 750px;" src="" alt="Resim">
+    <audio id="muzik" src="muzikdosyasi.mp3" loop></audio>
+</body>
+</html>
+<script>
+    document.getElementById('resimGoster').addEventListener('click', function() {
+    var resim = document.getElementById('resim');
+    var muzik = document.getElementById('muzik');
+    var buton = document.getElementById('resimGoster'); // buton değişkenini tanımla
+
+ 
+
+    // Butonu gizle
+    buton.style.display = 'none';
+
+    // Müziği çal
+    muzik.volume=0.5;
+    muzik.play();
+
+    setTimeout(function() {
+            resim.src = 'resim.jpg';
+            resim.style.display = 'block';
+            resim.classList.remove('hidden');
+        }, 6800); // 3 saniye sonra resmi göster (3000 milisaniye)
+});
+</script>
